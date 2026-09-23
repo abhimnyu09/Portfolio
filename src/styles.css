@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Kinetic Glass design system.
- * Dark ink base, cyan/violet accents, frosted-glass surfaces.
+ * Ember & Jade design system.
+ * Warm espresso ink base, amber primary, jade secondary accent.
+ * Serif display (Fraunces) over grotesk body (Manrope).
  */
 
 @theme inline {
@@ -32,37 +33,39 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-2: var(--accent-2);
+  --color-accent-2-foreground: var(--accent-2-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.12 0.02 268); /* #070B16 ink */
-  --foreground: oklch(0.98 0.005 250);
-  --card: oklch(0.17 0.025 272); /* #0E1526 panel */
-  --card-foreground: oklch(0.98 0.005 250);
-  --popover: oklch(0.17 0.025 272);
-  --popover-foreground: oklch(0.98 0.005 250);
-  --primary: oklch(0.86 0.14 212); /* #22D3EE cyan */
-  --primary-foreground: oklch(0.12 0.02 268);
-  --secondary: oklch(0.17 0.025 272);
-  --secondary-foreground: oklch(0.98 0.005 250);
-  --muted: oklch(0.17 0.025 272);
-  --muted-foreground: oklch(0.66 0.05 263); /* #8A97B5 */
-  --accent: oklch(0.86 0.14 212);
-  --accent-foreground: oklch(0.12 0.02 268);
-  --accent-2: oklch(0.68 0.19 293); /* #A78BFA violet */
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --background: oklch(0.13 0.018 55); /* espresso ink */
+  --foreground: oklch(0.96 0.015 90); /* warm paper */
+  --card: oklch(0.18 0.025 60);
+  --card-foreground: oklch(0.96 0.015 90);
+  --popover: oklch(0.18 0.025 60);
+  --popover-foreground: oklch(0.96 0.015 90);
+  --primary: oklch(0.85 0.155 85); /* amber */
+  --primary-foreground: oklch(0.16 0.02 60);
+  --secondary: oklch(0.18 0.025 60);
+  --secondary-foreground: oklch(0.96 0.015 90);
+  --muted: oklch(0.18 0.025 60);
+  --muted-foreground: oklch(0.68 0.03 75);
+  --accent: oklch(0.85 0.155 85);
+  --accent-foreground: oklch(0.16 0.02 60);
+  --accent-2: oklch(0.72 0.12 165); /* jade */
+  --accent-2-foreground: oklch(0.13 0.018 55);
+  --destructive: oklch(0.66 0.2 25);
+  --destructive-foreground: oklch(0.97 0.01 90);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.86 0.14 212);
+  --ring: oklch(0.85 0.155 85);
 }
 
 @layer base {
@@ -80,9 +83,54 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
+
+  ::selection {
+    background: oklch(0.85 0.155 85 / 0.3);
+  }
 }
 
-/* Kinetic Glass ambient motion */
+/* ---------- continuous ambient motion ---------- */
+
+/* slow-orbiting aurora glow */
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(6vw, -4vh) scale(1.15) rotate(40deg);
+  }
+  50% {
+    transform: translate(-3vw, 5vh) scale(0.9) rotate(90deg);
+  }
+  75% {
+    transform: translate(-6vw, -3vh) scale(1.1) rotate(140deg);
+  }
+}
+
+@utility animate-aurora {
+  animation: aurora 26s ease-in-out infinite;
+}
+
+@utility animate-aurora-slow {
+  animation: aurora 40s ease-in-out infinite reverse;
+}
+
+/* sweeping conic beam */
+@keyframes sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility animate-sweep {
+  animation: sweep 60s linear infinite;
+}
+
+/* gentle float for glass panels */
 @keyframes float-a {
   0%,
   100% {
@@ -103,6 +151,14 @@
   }
 }
 
+@utility animate-float-a {
+  animation: float-a 14s ease-in-out infinite;
+}
+
+@utility animate-float-b {
+  animation: float-b 18s ease-in-out infinite;
+}
+
 @keyframes drift {
   0%,
   100% {
@@ -113,6 +169,25 @@
   }
 }
 
+@utility animate-drift {
+  animation: drift 9s ease-in-out infinite;
+}
+
+/* marquee ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* scroll reveal */
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -124,23 +199,10 @@
   }
 }
 
-@utility animate-float-a {
-  animation: float-a 14s ease-in-out infinite;
-}
-
-@utility animate-float-b {
-  animation: float-b 18s ease-in-out infinite;
-}
-
-@utility animate-drift {
-  animation: drift 9s ease-in-out infinite;
-}
-
 @utility animate-reveal-up {
   animation: reveal-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* Scroll-triggered reveal: elements fade up when they enter the viewport */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(24px);
@@ -152,4 +214,25 @@
 .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* film grain overlay (pure CSS noise) */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-aurora-slow,
+  .animate-sweep,
+  .animate-marquee,
+  .animate-float-a,
+  .animate-float-b,
+  .animate-drift {
+    animation: none;
+  }
 }
