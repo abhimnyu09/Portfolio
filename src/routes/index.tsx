@@ -248,12 +248,26 @@ function Index() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background font-body text-foreground">
-      {/* ambient gradient light */}
+      {/* continuously-running aurora glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="animate-float-a absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-primary/25 blur-[120px]" />
-        <div className="animate-float-b absolute top-1/3 -right-40 h-[560px] w-[560px] rounded-full bg-accent-2/25 blur-[130px]" />
-        <div className="absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="animate-aurora absolute -top-40 -left-32 h-[560px] w-[560px] rounded-full bg-primary/20 blur-[130px]" />
+        <div className="animate-aurora-slow absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-accent-2/20 blur-[140px]" />
+        <div className="animate-aurora absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-primary/10 blur-[120px]" />
       </div>
+
+      {/* slow sweeping light beam */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="animate-sweep absolute top-[-30%] left-[55%] h-[1200px] w-[320px] opacity-20 blur-3xl"
+          style={{
+            background:
+              "linear-gradient(180deg, oklch(0.85 0.155 85 / 0.5), transparent 70%)",
+          }}
+        />
+      </div>
+
+      {/* film grain */}
+      <div className="grain-overlay" />
 
       {/* diagonal frosted glass panels */}
       <div className="pointer-events-none absolute inset-0">
@@ -356,8 +370,40 @@ function Index() {
         </div>
       </section>
 
+      {/* marquee ticker */}
+      <div className="relative z-10 overflow-hidden border-y border-foreground/10 bg-foreground/[0.02] py-4 backdrop-blur-sm">
+        <div className="animate-marquee flex w-max items-center gap-10 whitespace-nowrap">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center gap-10">
+              {[
+                "IIT Mandi",
+                "Expedia Group",
+                "Electrical Engineering",
+                "Machine Learning",
+                "Embedded Systems",
+                "Automation",
+                "Verilog",
+                "n8n",
+                "AWS Bedrock",
+                "YOLOv8",
+                "LightGBM",
+                "Next.js",
+              ].map((word) => (
+                <span
+                  key={`${copy}-${word}`}
+                  className="flex items-center gap-10 font-display text-sm tracking-[0.2em] text-foreground/50 uppercase"
+                >
+                  {word}
+                  <span className="size-1.5 rounded-full bg-primary/60" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* about + academics */}
-      <section id="about" className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
+      <section id="about" className="relative z-10 mx-auto max-w-6xl px-6 pt-24 pb-24">
         <div className="reveal-on-scroll grid grid-cols-1 gap-5 md:grid-cols-2">
           <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-7 backdrop-blur-md">
             <h2 className="font-display text-xl font-semibold">About me</h2>
