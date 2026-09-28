@@ -91,43 +91,32 @@
 
 /* ---------- continuous ambient motion ---------- */
 
-/* slow-orbiting aurora glow */
-@keyframes aurora {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-  }
-  25% {
-    transform: translate(6vw, -4vh) scale(1.15) rotate(40deg);
-  }
-  50% {
-    transform: translate(-3vw, 5vh) scale(0.9) rotate(90deg);
-  }
-  75% {
-    transform: translate(-6vw, -3vh) scale(1.1) rotate(140deg);
-  }
+/* hero signal field */
+.hero-signal-field {
+  mask-image: linear-gradient(to bottom, black 0%, black 76%, transparent 100%);
+  background:
+    radial-gradient(circle at 78% 42%, color-mix(in oklab, var(--accent-2) 11%, transparent), transparent 27%),
+    radial-gradient(circle at 68% 48%, color-mix(in oklab, var(--primary) 9%, transparent), transparent 38%);
 }
 
-@utility animate-aurora {
-  animation: aurora 26s ease-in-out infinite;
+.hero-signal-grid {
+  opacity: 0.22;
+  mask-image: radial-gradient(ellipse 52% 74% at 76% 42%, black, transparent 84%);
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
-@utility animate-aurora-slow {
-  animation: aurora 40s ease-in-out infinite reverse;
+@keyframes signal-scan {
+  0% { transform: translateX(-4vw); opacity: 0; }
+  12% { opacity: 0.3; }
+  72% { opacity: 0.12; }
+  100% { transform: translateX(104vw); opacity: 0; }
 }
 
-/* sweeping conic beam */
-@keyframes sweep {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@utility animate-sweep {
-  animation: sweep 60s linear infinite;
+@utility animate-signal-scan {
+  animation: signal-scan 11s linear infinite;
 }
 
 /* gentle float for glass panels */
@@ -226,9 +215,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-aurora,
-  .animate-aurora-slow,
-  .animate-sweep,
+  .animate-signal-scan,
   .animate-marquee,
   .animate-float-a,
   .animate-float-b,

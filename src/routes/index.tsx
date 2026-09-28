@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useReveal } from "@/hooks/use-reveal";
+import { HeroSignalField } from "@/components/hero-signal-field";
 
 import portrait from "@/assets/portrait.jpg";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
@@ -248,31 +249,14 @@ function Index() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background font-body text-foreground">
-      {/* continuously-running aurora glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="animate-aurora absolute -top-40 -left-32 h-[560px] w-[560px] rounded-full bg-primary/20 blur-[130px]" />
-        <div className="animate-aurora-slow absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-accent-2/20 blur-[140px]" />
-        <div className="animate-aurora absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-primary/10 blur-[120px]" />
-      </div>
-
-      {/* slow sweeping light beam */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-          className="animate-sweep absolute top-[-30%] left-[55%] h-[1200px] w-[320px] opacity-20 blur-3xl"
-          style={{
-            background:
-              "linear-gradient(180deg, oklch(0.85 0.155 85 / 0.5), transparent 70%)",
-          }}
-        />
-      </div>
-
       {/* film grain */}
       <div className="grain-overlay" />
 
-      {/* diagonal frosted glass panels */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="animate-float-a absolute -top-24 right-[8%] h-[460px] w-[300px] rotate-12 rounded-3xl border border-foreground/10 bg-foreground/[0.04] backdrop-blur-xl" />
-        <div className="animate-float-b absolute -bottom-[60px] left-[6%] h-[380px] w-[260px] -rotate-12 rounded-3xl border border-foreground/10 bg-foreground/[0.03] backdrop-blur-xl" />
+      {/* living signal field — concentrated around the landing screen */}
+      <div className="hero-signal-field pointer-events-auto absolute inset-x-0 top-0 h-[760px] overflow-hidden">
+        <HeroSignalField />
+        <div className="hero-signal-grid absolute inset-0" />
+        <div className="animate-signal-scan absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
       </div>
 
       {/* nav */}
