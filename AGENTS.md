@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep the landing animation in `HeroSignalField` as a canvas layer that reads semantic CSS colors; this preserves theme cohesion and isolates animation work from portfolio content.
+- Keep portfolio content in src/content/portfolio.ts and case studies in a native <dialog> (CaseStudyDialog); separates facts from layout and avoids extra dependencies.
