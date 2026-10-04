@@ -8,7 +8,7 @@ import projectRiscv from "@/assets/project-riscv.jpg";
 export const EMAIL = "b23058@students.iitmandi.ac.in";
 export const PHONE = "+91 98138 79253";
 export const GITHUB = "https://github.com/abhimnyu09";
-export const LINKEDIN = "https://linkedin.com/in/abhimanyu-sharma-2b213";
+export const LINKEDIN = "https://www.linkedin.com/in/abhimanyu-sharma-2b2130292/";
 export const LEETCODE = "https://leetcode.com/u/reQJnyVbNO/";
 
 export const NAV_LINKS = [
