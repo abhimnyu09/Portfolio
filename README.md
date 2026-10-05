@@ -1,29 +1,20 @@
-# Welcome to your Lovable project
+# My Portfolio
 
-This project was built with [Lovable](https://lovable.dev).
+A single-page portfolio for Abhimanyu Sharma — B.Tech Electrical Engineering student at IIT Mandi, Software Development Intern at Expedia Group, building across software, machine learning and embedded systems. It covers experience, projects, skills, achievements and links, with a warm ember-and-jade theme and a canvas signal field behind the landing screen.
 
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+**Live site:** https://abhimanyu09portfolio.lovable.app
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requires Node.js and npm.
 
 ```sh
 git clone <this-repository-url>
-cd <repository-name>
+cd my-portfolio
 npm i
 npm run dev
 ```
 
 ## Built with
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+TanStack Start · TypeScript · React · Tailwind CSS
