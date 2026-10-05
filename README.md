@@ -1,122 +1,20 @@
-# My Digital Canvas
+# My Portfolio
 
-i want to build one portfolio website for myself - i can give you te details about it which i thought of - 
-PERSON
+A single-page portfolio for Abhimanyu Sharma — B.Tech Electrical Engineering student at IIT Mandi, Software Development Intern at Expedia Group, building across software, machine learning and embedded systems. It covers experience, projects, skills, achievements and links, with a warm ember-and-jade theme and a canvas signal field behind the landing screen.
 
-├── Name
-
-├── Bio
-
-├── Profile photo
-
-└── Personal introduction
-
-ACADEMICS
-
-├── IIT Mandi
-
-├── Degree
-
-├── CGPA
-
-├── Courses
-
-└── Academic projects
-
-EXPERIENCE
-
-├── Expedia
-
-├── CnP
-
-└── Future experiences
-
-PROJECTS
-
-├── CareerPulse
-
-├── Pulse
-
-├── Academic projects
-
-├── ML projects
-
-└── Experiments
-
-SKILLS
-
-├── Languages
-
-├── CS
-
-├── ML
-
-├── Tools
-
-└── Learning
-
-ACHIEVEMENTS
-
-├── Academic
-
-├── Coding
-
-└── Competitions
-
-DIGITAL
-
-├── GitHub
-
-├── LinkedIn
-
-├── LeetCode
-
-├── Codeforces
-
-├── CodeChef
-
-├── GFG
-
-└── Social
-
-PERSONAL
-
-├── Photography
-
-├── Travel
-
-├── Food
-
-├── Volleyball
-
-└── Interests
-
-DOCUMENTS
-
-└── Resume
-
-
-so this was my plan. obviously you can add things or modify existing one to make better. so i need a fantastic website with modern touch - animations, transitions not too much but adequate only. so what do you think can you build what do you need from me
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://abhimanyu09portfolio.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/32bbf9b5-2e60-441b-bf3b-ca4d71159561).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+**Live site:** https://abhimanyu09portfolio.lovable.app
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requires Node.js and npm.
 
 ```sh
 git clone <this-repository-url>
-cd <repository-name>
+cd my-portfolio
 npm i
 npm run dev
 ```
+
+## Built with
+
+TanStack Start · TypeScript · React · Tailwind CSS
